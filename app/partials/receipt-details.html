@@ -1,5 +1,19 @@
-<p>This is receipt {{receiptId}} detail view.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+ <!-- Navbar -->
+ <div class="navbar navbar-fixed-top center">
+ 	<div class="navbar-inner">
+ 		<div class="container">
+ 		<a class="brand" href="#/page/home">{{receipt.store}}</a>
+ 			<ul class="nav">
+ 				<li ng-class="{active: slug == 'add'}"><a href="#/receipts/add">Add</a></li>
+ 				<li ng-class="{active: slug == 'back'}"><a href="#/receipts/">Back</a></li>
+ 			</ul>
+ 		</div>
+ 	</div>
+ </div>
+ <div ng-repeat="(key,val) in receipt.items">
+ 	<div class="label">
+ 		<div id="{{receipt.id}}">
+ 			<h5>{{key}} - {{val}}</h5></div>
+ 		</div>
+ 	</div>
+ </div>

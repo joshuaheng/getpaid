@@ -1,35 +1,41 @@
 [
 	{
-		"id":"1",
+		"id":"0",
 		"store": "Walmart",
-		"amount": "$12.34",
+		"amount": "$3.00",
 		"items":{
 			"item1":"$1.00",
 			"item2":"$2.00"
 		}
 	},
 	{
-		"id":"2",
+		"id":"1",
 		"store": "Meijer",
 		"amount": "$12.34",
 		"items":{
-			"item3":"$1.00",
-			"item4":"$2.00"
+			"item3":"$6.34",
+			"item4":"$6.00"
+		}
+	},
+	{
+		"id":"2",
+		"store": "Target",
+		"amount": "$12.34",
+		"items":{
 		}
 	},
 	{
 		"id":"3",
-		"store": "Target",
-		"amount": "$12.34"
+		"store": "Schnucks",
+		"amount": "$12.34",
+		"items":{
+		}
 	},
 	{
 		"id":"4",
-		"store": "Schnucks",
-		"amount": "$12.34"
-	},
-	{
-		"id":"5",
 		"store": "County Market",
-		"amount": "$12.34"
+		"amount": "$12.34",
+		"items":{
+		}
 	}
-	]
+]

@@ -1,7 +1,19 @@
+ <!-- Navbar -->
+    <div class="navbar navbar-fixed-top center">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#/page/home">GetPaid</a>
+          <ul class="nav">
+            <li ng-class="{active: slug == 'add'}"><a href="#/receipts/add">Add</a></li>
+            <li ng-class="{active: slug == 'back'}"><a href="#/receipts/">Back</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
 <!--displays dynamic generated list here-->
 <div ng-repeat="receipt in receipts">
 	<div class="label">
-		<div ng-click="receiptClicked('/receipts/{{receipt.id}}')" id="{{receipt.id}}">
+		<div ng-click="receiptClicked({{receipt.id}})" id="{{receipt.id}}">
 			<h5>{{receipt.store}} - {{receipt.amount}}</h5></div>
 		</div>
 	</div>
