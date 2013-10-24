@@ -1,11 +1,17 @@
-'use strict';
+var myApp = angular.module('myApp', []);
 
 /* Controllers */
 
-angular.module('myApp.controllers', []).
-  controller('MyCtrl1', [function() {
+//loads the data for main page
+myApp.controller('MainPgCtrl', function($scope, $http) {
+	//should get the 
+	$http.get('./json/mock.json')
+       .then(function(result){
+          $scope.receipts = result.data;             
+        });
 
-  }])
-  .controller('MyCtrl2', [function() {
-
-  }]);
+    //to be directed to detailed receipt page
+    $scope.receiptClicked = function(id){
+    	alert(id);
+    }
+});
