@@ -34,3 +34,15 @@
 .content{
   padding-top:55px;
 }
+
+/*Owed payments classes*/
+
+.unpaid{
+  background-color:red;
+  color:black;
+}
+
+.fullyPaid{
+  background-color:green;
+  color:white;
+}

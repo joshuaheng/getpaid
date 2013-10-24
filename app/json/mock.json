@@ -3,39 +3,50 @@
 		"id":"0",
 		"store": "Walmart",
 		"amount": "$3.00",
+		"paid":true,
 		"items":{
-			"item1":"$1.00",
-			"item2":"$2.00"
+			"Colgate":"$1.00",
+			"Polish Kielbasa":"$2.00"
 		}
 	},
 	{
 		"id":"1",
 		"store": "Meijer",
 		"amount": "$12.34",
+		"paid":true,
 		"items":{
-			"item3":"$6.34",
-			"item4":"$6.00"
+			"Red Baron's Pizza":"$6.34",
+			"Ben & Jerry's":"$6.00"
 		}
 	},
 	{
 		"id":"2",
 		"store": "Target",
-		"amount": "$12.34",
+		"amount": "$11.99",
+		"paid":false,
 		"items":{
+			"Orange Juice":"$2.99",
+			"Toilet Paper":"$9.00"
 		}
 	},
 	{
 		"id":"3",
 		"store": "Schnucks",
-		"amount": "$12.34",
+		"amount": "$9.86",
+		"paid":true,
 		"items":{
+			"Chicken Breast":"$7.86",
+			"Bread":"$2.00"
 		}
 	},
 	{
 		"id":"4",
 		"store": "County Market",
-		"amount": "$12.34",
+		"amount": "$11.00",
+		"paid":false,
 		"items":{
+			"Coffee Powder":"$5.00",
+			"Detergent":"$6.00"
 		}
 	}
 ]

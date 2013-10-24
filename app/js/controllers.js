@@ -17,7 +17,6 @@ getpaidControllers.controller('ReceiptListCtrl', ['$scope', '$location','receipt
 	function($scope,$location,receiptDataSvc) {
 		receiptDataSvc.getReceipts().then(function(data){
 			$scope.receipts = data;
-			console.log(data);
 		});
 
 

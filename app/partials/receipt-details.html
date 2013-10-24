@@ -2,7 +2,7 @@
  <div class="navbar navbar-fixed-top center">
  	<div class="navbar-inner">
  		<div class="container">
- 		<a class="brand" href="#/page/home">{{receipt.store}}</a>
+ 			<a class="brand" href="#/page/home">{{receipt.store}}</a>
  			<ul class="nav">
  				<li ng-class="{active: slug == 'add'}"><a href="#/receipts/add">Add</a></li>
  				<li ng-class="{active: slug == 'back'}"><a href="#/receipts/">Back</a></li>
@@ -11,9 +11,8 @@
  	</div>
  </div>
  <div ng-repeat="(key,val) in receipt.items">
- 	<div class="label">
- 		<div id="{{receipt.id}}">
- 			<h5>{{key}} - {{val}}</h5></div>
- 		</div>
+ <div class="sharedColor" id="{{receipt.id}}">
+ 		<h5>{{key}} - {{val}}</h5>
  	</div>
  </div>
+</div>
