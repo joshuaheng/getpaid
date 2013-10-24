@@ -1,9 +1,10 @@
-var myApp = angular.module('myApp', []);
+var getpaidControllers = angular.module('getpaidControllers', []);
 
 /* Controllers */
 
-//loads the data for main page
-myApp.controller('MainPgCtrl', function($scope, $http) {
+//loads all the receipts in the main page
+getpaidControllers.controller('ReceiptListCtrl', ['$scope', '$http','$location',
+	function($scope, $http, $location) {
 	//should get the 
 	$http.get('./json/mock.json')
        .then(function(result){
@@ -11,7 +12,14 @@ myApp.controller('MainPgCtrl', function($scope, $http) {
         });
 
     //to be directed to detailed receipt page
-    $scope.receiptClicked = function(id){
-    	alert(id);
-    }
-});
+    $scope.receiptClicked = function(path){
+    	alert(path);
+    	$location.path(path);
+    	}
+}]);
+
+getpaidControllers.controller('ReceiptDetailCtrl',['$scope','$routeParams',
+	function($scope, $routeParams){
+		$scope.receiptId = $routeParams.receiptId;
+		
+	}]);

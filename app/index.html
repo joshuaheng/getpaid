@@ -1,5 +1,5 @@
   <!doctype html>
-  <html lang="en" ng-app="myApp">
+  <html lang="en" ng-app="getpaidApp">
   <head>
     <meta charset="utf-8">
     <title>GetPaid</title>
@@ -19,15 +19,7 @@
       </div>
     </div>
 
-    <div class ="content"ng-controller = "MainPgCtrl">
-      <!--displays dynamic generated list here-->
-      <div ng-repeat="receipt in receipts">
-      <div class="label">
-        <div ng-click="receiptClicked({{receipt.id}})" id="{{receipt.id}}">
-        <h5>{{receipt.store}}- {{receipt.amount}}</h5></div>
-        </div>
-      </div>
-    </div>
+    <div class ="content"ng-view></div>
   
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
