@@ -50,11 +50,61 @@ getpaidControllers.controller('ReceiptDetailCtrl',['$scope','$routeParams', 'rec
 	}]);
 
 //Controller to create a new receipt and add it to the database
+getpaidControllers.controller('NewReceiptCtrl',['$scope',
+
+	function($scope){
+		var master = {
+			storename:'',
+			date:'',
+			items:[]
+		};
+
+		var reset = {
+			name:'',
+			quantity:'',
+			cost:''
+		}
+
+		$scope.cancel = function() {
+			$scope.form = angular.copy(master);
+		};
+
+		$scope.save = function() {
+			master = $scope.form;
+			$scope.cancel();
+		};
+
+		$scope.isShared = function() {
+			//$scope.form = angular.copy(master);
+			alert("isShared");
+		};
+
+		$scope.notShared = function() {
+			//master = $scope.form;
+			//$scope.cancel();
+			alert("notShared");
+		};
+
+		$scope.addItem = function(newitem) {
+			$scope.form.items.push(newitem);
+			$scope.newItem = reset;
+		};
 
 
+		$scope.removeItem = function(index) {
+			$scope.form.items.splice(index, 1);
+		};
 
+		$scope.isCancelDisabled = function() {
+			return angular.equals(master, $scope.form);
+		};
 
+		$scope.isSaveDisabled = function() {
+			return $scope.myForm.$invalid || angular.equals(master, $scope.form);
+		};
 
+		$scope.cancel();
+	}]);
 
 
 //Miscellaneous functions
