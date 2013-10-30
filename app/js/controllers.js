@@ -30,6 +30,7 @@ getpaidControllers.controller('ReceiptListCtrl', ['$scope', '$location','receipt
     $scope.deleteReceipt = function(receiptId){
     	alert("Delete receipt " + $scope.receipts[receiptId-1].store + " ?");
     }
+
 }]);
 
 //changes the view to the detailed receipt view based on the receiptId
@@ -48,6 +49,15 @@ getpaidControllers.controller('ReceiptDetailCtrl',['$scope','$routeParams', 'rec
 
 	}]);
 
+//Controller to create a new receipt and add it to the database
+
+
+
+
+
+
+
+//Miscellaneous functions
 //function to retrieve the total expenditure for the month.
 function getTotal(data){
 	var total = 0;
