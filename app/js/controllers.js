@@ -4,7 +4,7 @@ var getpaidControllers = angular.module('getpaidControllers', []);
 getpaidControllers.factory('receiptDataSvc', function($http) {
 	return {
 		getReceipts: function() {
-			return $http.get('./json/mock.json').then(function(result) {
+			return $http.get('https://web.engr.illinois.edu/~heng3/getpaid/app/php/db_get.php').then(function(result) {
 				return result.data;
 			});
 		}
@@ -34,8 +34,9 @@ getpaidControllers.controller('ReceiptDetailCtrl',['$scope','$routeParams', 'rec
 		var receiptId = $scope.receiptId;
 		console.log(receiptId);
 		receiptDataSvc.getReceipts().then(function(data){
-			$scope.receipt = data[receiptId];
-			console.log(data[receiptId].items);
+			//offset by 1 because data is 0 indexed. Our receiptId starts from 1 in the db.
+			$scope.receipt = data[receiptId-1];
+			console.log(data[receiptId-1].items);
 		});
 
 	}]);
