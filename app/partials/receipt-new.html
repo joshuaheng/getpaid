@@ -20,7 +20,7 @@
  	<label>Items:</label>
 
  	<div ng-repeat="item in form.items">
- 		{{item.name}} - ${{item.cost}}
+ 		{{item.name}} - ${{item.cost}}[ <a href="" ng-click="removeItem($index)">X</a> ]
  	</div>
  		Item Name: <input type="text" ng-model="newItem.name" required/><br/>
  		Quantity: <input type="number" ng-model="newItem.quantity" required/><br/>
@@ -28,7 +28,7 @@
  		Shared: <button ng-click="isShared()" value = '1'>Yes</button>
  		<button ng-click="notShared()" value = '0'>No</button><br/>
  		[ <a href="" ng-click="addItem(newItem)">add</a> ]
- 		[ <a href="" ng-click="removeItem($index)">X</a> ]</form><br/>
+ 		</form><br/>
  	<button ng-click="cancel()" >Cancel</button>
  	<button ng-click="save()" >Save</button>
  </form>

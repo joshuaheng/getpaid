@@ -59,7 +59,7 @@ getpaidControllers.controller('NewReceiptCtrl',['$scope',
 			items:[]
 		};
 
-		var reset = {
+		var resetNewItemFd = {
 			name:'',
 			quantity:'',
 			cost:''
@@ -87,7 +87,7 @@ getpaidControllers.controller('NewReceiptCtrl',['$scope',
 
 		$scope.addItem = function(newitem) {
 			$scope.form.items.push(newitem);
-			$scope.newItem = reset;
+			$scope.newItem = angular.copy(resetNewItemFd);
 		};
 
 
