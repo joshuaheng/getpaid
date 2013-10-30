@@ -11,7 +11,7 @@
  </div>
  <!--displays dynamic generated list here-->
  <div ng-repeat="receipt in receipts" ng-class="{'unpaid':receipt.paid==false, 'fullyPaid':receipt.paid==true}">
- 	<div ng-click="receiptClicked({{receipt.id}})" id="{{receipt.id}}">
+ 	<div ng-swipe-left = "deleteReceipt({{receipt.id}})" ng-click="receiptClicked({{receipt.id}})" id="{{receipt.id}}">
  		<h5>{{receipt.store}} - ${{receipt.amount}}</h5>
  	</div>
 </div>

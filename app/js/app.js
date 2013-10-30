@@ -4,6 +4,7 @@
 // Declare app level module which depends on filters, and services
 var getpaidApp = angular.module('getpaidApp', [
   'ngRoute',
+  'ngTouch',
   'getpaidControllers',
   'getpaidApp.filters',
   'getpaidApp.services',

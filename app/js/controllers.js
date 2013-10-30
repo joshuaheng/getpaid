@@ -25,6 +25,11 @@ getpaidControllers.controller('ReceiptListCtrl', ['$scope', '$location','receipt
     $scope.receiptClicked = function(receiptId){
     	$location.path('/receipts/'+receiptId.toString());
     }
+
+    //TO BE COMPLETED
+    $scope.deleteReceipt = function(receiptId){
+    	alert("Delete receipt " + $scope.receipts[receiptId-1].store + " ?");
+    }
 }]);
 
 //changes the view to the detailed receipt view based on the receiptId

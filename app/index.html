@@ -7,18 +7,7 @@
     <link href="css/app.css" rel="stylesheet">
   </head>
   <body>
-    <!-- Navbar -->
-    <div class="navbar navbar-fixed-top center">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="#/page/home">GetPaid</a>
-          <ul class="nav">
-            <li ng-class="{active: slug == 'add'}"><a href="#/receipts/add">Add</a></li>
-            <li ng-class="{active: slug == 'back'}"><a href="#/receipts/">Back</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
+   
 
     <div class ="content"ng-view></div>
   
@@ -27,6 +16,7 @@
   -->
   <script src="lib/angular/angular.js"></script>
   <script src="lib/angular/angular-route.js"></script>
+  <script src="http://code.angularjs.org/1.2.0rc1/angular-touch.js"></script>
   <script src="js/app.js"></script>
   <script src="js/services.js"></script>
   <script src="js/controllers.js"></script>
