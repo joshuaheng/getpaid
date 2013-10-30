@@ -72,6 +72,7 @@ getpaidControllers.controller('NewReceiptCtrl',['$scope',
 		$scope.save = function() {
 			master = $scope.form;
 			$scope.cancel();
+			//sends the whole array of item objects to server for insertion into database.
 		};
 
 		$scope.isShared = function() {
@@ -93,14 +94,6 @@ getpaidControllers.controller('NewReceiptCtrl',['$scope',
 
 		$scope.removeItem = function(index) {
 			$scope.form.items.splice(index, 1);
-		};
-
-		$scope.isCancelDisabled = function() {
-			return angular.equals(master, $scope.form);
-		};
-
-		$scope.isSaveDisabled = function() {
-			return $scope.myForm.$invalid || angular.equals(master, $scope.form);
 		};
 
 		$scope.cancel();
