@@ -43,7 +43,7 @@ getpaidControllers.controller('ReceiptDetailCtrl',['$scope','$routeParams', 'rec
 
 	}]);
 
-
+//function to retrieve the total expenditure for the month.
 function getTotal(data){
 	var total = 0;
 	for(var i = 0; i < data.length; i++){
