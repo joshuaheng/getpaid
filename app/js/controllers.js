@@ -51,11 +51,11 @@ getpaidControllers.controller('ReceiptDetailCtrl',['$scope','$routeParams', 'rec
 
 //Controller to create a new receipt and add it to the database
 getpaidControllers.controller('NewReceiptCtrl',['$scope',
-
 	function($scope){
 		var master = {
 			storename:'',
 			date:'',
+			paid:'',
 			items:[]
 		};
 
@@ -73,25 +73,17 @@ getpaidControllers.controller('NewReceiptCtrl',['$scope',
 			shared:'',
 			users:[]
 		};
+
+		//resets the form to the default settings
 		$scope.cancel = function() {
 			$scope.form = angular.copy(master);
+			$scope.newItem = angular.copy(resetNewItemFd);
 		};
 
 		$scope.save = function() {
 			master = $scope.form;
 			$scope.cancel();
 			//sends the whole array of item objects to server for insertion into database.
-		};
-
-		$scope.isShared = function() {
-			//$scope.form = angular.copy(master);
-			alert("isShared");
-		};
-
-		$scope.notShared = function() {
-			//master = $scope.form;
-			//$scope.cancel();
-			alert("notShared");
 		};
 
 		$scope.addItem = function(newitem) {
@@ -109,12 +101,14 @@ getpaidControllers.controller('NewReceiptCtrl',['$scope',
 			$scope.form.items.splice(index, 1);
 		};
 
+		//by default if it is a shared receipt, paid will be set as false and vice versa.
+		$scope.receiptPaid = function(value){
+			$scope.form.paid = value;
+			console.log(value);
+		};
+
 		$scope.cancel();
 	}]);
-
-function addSharedUserCtrl(){
-
-}
 
 //Miscellaneous functions
 //function to retrieve the total expenditure for the month.

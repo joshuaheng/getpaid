@@ -22,20 +22,20 @@
  	</div>
 
  	<!--Display input fields for adding details of each item to the newItem model-->
- 	Item Name: <input type="text" ng-model="newItem.name" /><br/>
- 	Quantity: <input type="number" ng-model="newItem.quantity" /><br/>
- 	Cost: <input type="text" ng-model="newItem.cost" /><br/>
- 	Shared: <input type="radio" ng-model="newItem.shared" value = '1'>Yes</button>
- 	<input type="radio" ng-model="newItem.shared" value = '0'>No</button><br/>
+ 	<div>Item Name: <input type="text" ng-model="newItem.name" /></div><br/>
+ 	<div>Quantity: <input type="number" ng-model="newItem.quantity" /></div><br/>
+ 	<div>Cost: <input type="text" ng-model="newItem.cost" /></div><br/>
+ 	<div>Shared: <input type="radio" ng-model="newItem.shared" value = "1" ng-change="receiptPaid('0')">Yes
+ 	<input type="radio" ng-model="newItem.shared" value = "0" ng-change="receiptPaid('1')">No</div><br/>
 
  	<!--Displays fields to add shared users to the item if the item is shared by someone else-->
  	<div ng-show="newItem.shared">
  		<label>User(s):</label>
  		<div ng-repeat="user in newItem.users">
  		<!--Displays the user(s) for the current shared item in newItem-->
- 			{{user}}[ <a href="" ng-click="removeItem($index)">X</a> ]
+ 			<div>{{user}}[ <a href="" ng-click="removeItem($index)">X</a> ]</div>
  		</div>
- 		Shared User: <input type="text" ng-model="payer" /><br/>
+ 		<div>Shared User: <input type="text" ng-model="payer" /></div><br/>
  		[ <a href="" ng-click="addSharedUser(newItem,payer)">add this user</a> ]
  	</div>
 
@@ -47,6 +47,6 @@
 
  <hr/>
  Debug View:
- <pre>form={{form}} newItem ={{newItem.users.name}}<br/>
+ <pre>form={{form}} payer ={{payer}}<br/>
  master={{master}}
  </pre>
