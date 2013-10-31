@@ -1,0 +1,84 @@
+I removed constraints and references to the schema. By selecting the table first I ran the following sql statements in order to create the tables.
+
+
+1.
+CREATE TABLE IF NOT EXISTS User (
+  `userId` VARCHAR(32) NULL,
+  `email` VARCHAR(32) NOT NULL,
+  `password` VARCHAR(32) NULL,
+  PRIMARY KEY (`email`))
+ENGINE = InnoDB;
+
+
+
+2.
+CREATE TABLE IF NOT EXISTS Reciept (
+  `recieptId` INT NOT NULL AUTO_INCREMENT,
+  `userId` VARCHAR(45) NOT NULL,
+  `total` DOUBLE NULL,
+  `shared` TINYINT(1) NOT NULL DEFAULT FALSE,
+  `date` DATE NULL,
+  `storeName` VARCHAR(45) NULL,
+  PRIMARY KEY (`recieptId`),
+  UNIQUE INDEX `recieptId_UNIQUE` (`recieptId` ASC))
+ENGINE = InnoDB;
+
+3.
+CREATE TABLE IF NOT EXISTS Item (
+  `name` VARCHAR(45) NULL,
+  `recieptId` INT NULL,
+  `itemId` INT NOT NULL,
+  `numberOfItems` INT NULL,
+  `cost` DOUBLE NULL,
+  `payerNumber` INT NULL,
+  PRIMARY KEY (`itemId`))
+ENGINE = InnoDB;
+
+
+4.
+
+CREATE TABLE IF NOT EXISTS Payers (
+  `recieptId` INT NOT NULL,
+  `payerNumber` INT NOT NULL,
+  `email` VARCHAR(45) NULL,
+  `phoneNumber` VARCHAR(45) NULL,
+  `name` VARCHAR(45) NULL,
+  PRIMARY KEY (`recieptId`, `payerNumber`))
+ENGINE = InnoDB;
+
+
+5.
+START TRANSACTION;
+
+INSERT INTO User (`userId`, `email`, `password`) VALUES ('Shouvik', 'shouvik.sayef@gmail.com', 'password123');
+INSERT INTO User (`userId`, `email`, `password`) VALUES ('Joshua', 'heng3@illinois.edu', 'password123');
+INSERT INTO User (`userId`, `email`, `password`) VALUES ('Shuotian', 'schen79@illinois.edu', 'password123');
+INSERT INTO User (`userId`, `email`, `password`) VALUES ('Joseph', 'jtmilla2@illinois.edu', 'password123');
+INSERT INTO User (`userId`, `email`, `password`) VALUES ('user1', 'user1@example.com', 'password123');
+
+COMMIT;
+
+6.
+START TRANSACTION;
+
+INSERT INTO Reciept (`recieptId`, `userId`, `total`, `shared`, `date`, `storeName`) VALUES (1, 'Shouvik', 27.00, TRUE, '10/16/2013', 'PizzaHut');
+
+COMMIT;
+
+
+7.
+START TRANSACTION;
+INSERT INTO Item (`name`, `recieptId`, `itemId`, `numberOfItems`, `cost`, `payerNumber`) VALUES ('Cheese Pizza', 1, 1, 1, 8.00,   );
+INSERT INTO Item (`name`, `recieptId`, `itemId`, `numberOfItems`, `cost`, `payerNumber`) VALUES ('Peperoni Pizza', 1, 2, 1, 9.00, 1);
+INSERT INTO Item (`name`, `recieptId`, `itemId`, `numberOfItems`, `cost`, `payerNumber`) VALUES ('Sausage Pizza', 1, 3, 1, 10.00, 2);
+
+COMMIT;
+
+8.
+START TRANSACTION;
+INSERT INTO Payers (`recieptId`, `payerNumber`, `email`, `phoneNumber`, `name`) VALUES (1, 0, 'shouvik.sayef@gmail.com', '217-555-5554', 'Shouvik');
+INSERT INTO Payers (`recieptId`, `payerNumber`, `email`, `phoneNumber`, `name`) VALUES (1, 1, 'heng3@illinois.edu', '217-444-4444', 'Josh');
+INSERT INTO Payers (`recieptId`, `payerNumber`, `email`, `phoneNumber`, `name`) VALUES (1, 2, 'schen79@illinois.edu', '217-333-3333', 'Shuotian');
+
+COMMIT;
+
