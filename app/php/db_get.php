@@ -1,4 +1,4 @@
-<?php
+<?php header('Access-Control-Allow-Origin: *');
 	require("connect.php");
 
 	//preset userID to be 1 for now(person who is logged into the app)

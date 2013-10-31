@@ -50,29 +50,25 @@ getpaidControllers.controller('ReceiptDetailCtrl',['$scope','$routeParams', 'rec
 	}]);
 
 //Controller to create a new receipt and add it to the database
-getpaidControllers.controller('NewReceiptCtrl',['$scope',
-	function($scope){
+getpaidControllers.controller('NewReceiptCtrl',['$scope','$http',
+	function($scope,$http){
 		var master = {
 			storename:'',
-			date:'',
+			receiptDate:'',
 			paid:'',
+			sharedReceipt:'',
+			total:0.00,
 			items:[]
 		};
 
 		var resetNewItemFd = {
 			name:'',
 			quantity:'',
-			cost:'',
+			cost:0.00,
 			shared:'',
 			users:[]
 		};
-		$scope.newItem={
-			name:'',
-			quantity:'',
-			cost:'',
-			shared:'',
-			users:[]
-		};
+		
 
 		//resets the form to the default settings
 		$scope.cancel = function() {
@@ -81,13 +77,26 @@ getpaidControllers.controller('NewReceiptCtrl',['$scope',
 		};
 
 		$scope.save = function() {
-			master = $scope.form;
-			$scope.cancel();
+			var data = $scope.form;
 			//sends the whole array of item objects to server for insertion into database.
+			/*1) insert new receipt into db first (should get unique receiptid back)
+			  2) insert payers into db with itemid and receiptid (should get unique payer number back)
+			  3) insert items into db with the returned receiptid and payer number
+			*/
+			$http.post('https://web.engr.illinois.edu/~heng3/getpaid/app/php/db_add.php',data)
+			.success(function(response,status){
+				console.log(response);
+			})
+			.error(function(response, status) {
+     		// this isn't happening:
+     		console.log(response);
+   			});
+			$scope.cancel();
 		};
 
 		$scope.addItem = function(newitem) {
 			$scope.form.items.push(newitem);
+			$scope.form.total+=parseFloat(newitem.cost);
 			$scope.newItem = angular.copy(resetNewItemFd);
 			$scope.payer='';
 		};
@@ -102,8 +111,11 @@ getpaidControllers.controller('NewReceiptCtrl',['$scope',
 		};
 
 		//by default if it is a shared receipt, paid will be set as false and vice versa.
-		$scope.receiptPaid = function(value){
-			$scope.form.paid = value;
+		$scope.receiptPaid = function(obj, value){
+			if(obj=="item")
+				$scope.form.paid = value;
+			else
+				$scope.form.sharedReceipt = value;
 			console.log(value);
 		};
 

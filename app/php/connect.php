@@ -18,5 +18,7 @@
                 echo "Error loading characterset." . mysqli_error($dbConnection);
                 exit(1);
 
-        }                
+        }
+
+        echo "Success";
 ?>

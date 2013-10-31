@@ -13,8 +13,9 @@
 
  <form name="myForm">
  	Store Name: <input type="text" ng-model="form.storename" required/> <br/><br/>
- 	Date: <input type="date" ng-model="form.date" required/> <br/><br/>
-
+ 	Date: <input type="date" ng-model="form.receiptDate" required/> <br/><br/>
+ 	Shared Receipt: <input type="radio" ng-model="form.sharedReceipt" value = "1" ng-change="receiptPaid('receipt','1')">Yes
+ 	<input type="radio" ng-model="form.sharedReceipt" value = "0" ng-change="receiptPaid('receipt','0')">No<br/>
  	<!--Displays the items in the current newReceipt model-->
  	<label>Items:</label>
  	<div ng-repeat="item in form.items">
@@ -25,8 +26,8 @@
  	<div>Item Name: <input type="text" ng-model="newItem.name" /></div><br/>
  	<div>Quantity: <input type="number" ng-model="newItem.quantity" /></div><br/>
  	<div>Cost: <input type="text" ng-model="newItem.cost" /></div><br/>
- 	<div>Shared: <input type="radio" ng-model="newItem.shared" value = "1" ng-change="receiptPaid('0')">Yes
- 	<input type="radio" ng-model="newItem.shared" value = "0" ng-change="receiptPaid('1')">No</div><br/>
+ 	<div>Shared: <input type="radio" ng-model="newItem.shared" value = "1" ng-change="receiptPaid('item','0')">Yes
+ 	<input type="radio" ng-model="newItem.shared" value = "0" ng-change="receiptPaid('item','1')">No</div><br/>
 
  	<!--Displays fields to add shared users to the item if the item is shared by someone else-->
  	<div ng-show="newItem.shared">
