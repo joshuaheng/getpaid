@@ -62,9 +62,17 @@ getpaidControllers.controller('NewReceiptCtrl',['$scope',
 		var resetNewItemFd = {
 			name:'',
 			quantity:'',
-			cost:''
-		}
-
+			cost:'',
+			shared:'',
+			users:[]
+		};
+		$scope.newItem={
+			name:'',
+			quantity:'',
+			cost:'',
+			shared:'',
+			users:[]
+		};
 		$scope.cancel = function() {
 			$scope.form = angular.copy(master);
 		};
@@ -89,8 +97,13 @@ getpaidControllers.controller('NewReceiptCtrl',['$scope',
 		$scope.addItem = function(newitem) {
 			$scope.form.items.push(newitem);
 			$scope.newItem = angular.copy(resetNewItemFd);
+			$scope.payer='';
 		};
 
+		$scope.addSharedUser = function(item,username){
+			item.users.push(username);
+			$scope.payer='';
+		};
 
 		$scope.removeItem = function(index) {
 			$scope.form.items.splice(index, 1);
@@ -99,6 +112,9 @@ getpaidControllers.controller('NewReceiptCtrl',['$scope',
 		$scope.cancel();
 	}]);
 
+function addSharedUserCtrl(){
+
+}
 
 //Miscellaneous functions
 //function to retrieve the total expenditure for the month.
