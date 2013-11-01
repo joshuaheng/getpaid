@@ -83,6 +83,7 @@ getpaidControllers.controller('NewReceiptCtrl',['$scope','$http',
 			  2) insert payers into db with itemid and receiptid (should get unique payer number back)
 			  3) insert items into db with the returned receiptid and payer number
 			*/
+			console.log(data.storename + "" + data.receiptDate+""+data.paid+""+data.sharedReceipt+""+data.total);
 			$http.post('https://web.engr.illinois.edu/~heng3/getpaid/app/php/db_add.php',data)
 			.success(function(response,status){
 				console.log(response);

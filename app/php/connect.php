@@ -19,6 +19,4 @@
                 exit(1);
 
         }
-
-        echo "Success";
 ?>
