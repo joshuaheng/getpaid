@@ -40,9 +40,11 @@
 .unpaid{
   background-color:red;
   color:black;
+  padding: 0 0 0 10px;
 }
 
 .fullyPaid{
   background-color:green;
   color:white;
+  padding: 0 0 0 10px;
 }
