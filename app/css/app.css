@@ -1,50 +1,73 @@
-/* app css stylesheet */
+/**
+* Name: GetPaid CSS Stylesheet
+* Authors: Joshua Heng, Joseph Milla
+* Version: 0.0.1b;
+* Comment: Beta Version 0.0.1b
+*/
 
-.menu {
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+*
+{
+  font-family: "Open Sans", sans-serif;
+}
+
+.menu 
+{
   list-style: none;
   border-bottom: 0.1em solid black;
   margin-bottom: 2em;
   padding: 0 0 0.5em;
 }
 
-.menu:before {
+.menu:before 
+{
   content: "[";
 }
 
-.menu:after {
+.menu:after 
+{
   content: "]";
 }
 
-.menu > li {
+.menu > li 
+{
   display: inline;
 }
 
-.menu > li:before {
+.menu > li:before 
+{
   content: "|";
   padding-right: 0.3em;
 }
 
-.menu > li:nth-child(1):before {
+.menu > li:nth-child(1):before 
+{
   content: "";
   padding: 0;
 }
 
-/*Header bar styling*/
-/*Content*/
-.content{
+/* Header bar styling */
+/* Content */
+.content
+{
   margin-top:50px;
 }
 
-/*Owed payments classes*/
+/* Owed payments classes */
 
-.unpaid{
-  background-color:red;
-  color:black;
+.unpaid
+{
+  background-color: red;
+  color: black;
   padding: 0 0 0 10px;
+  height: 50px;
 }
 
-.fullyPaid{
-  background-color:green;
-  color:white;
+.fullyPaid
+{
+  background-color: green;
+  color: white;
   padding: 0 0 0 10px;
+  height: 50px;
 }
