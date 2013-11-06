@@ -1,27 +1,41 @@
-  <!doctype html>
-  <html lang="en" ng-app="getpaidApp">
-  <head>
-    <meta name="viewport" http-equiv="Content-Type" content="width=device-width, text/html; charset=utf-8,user-scalable=no, initial-scale=1, maximum-scale=1" />
-    <title>GetPaid</title>
-    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/app.css" rel="stylesheet">
-  </head>
-  <body>
-   
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" ng-app="getpaidApp">
+<head>
+  <title>GetPaid</title>
 
-    <div class ="content"ng-view></div>
-  
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-  -->
+  <!-- METADATA -->
+  <meta name="viewport" http-equiv="Content-Type" content="width=device-width, text/html; charset=utf-8,user-scalable=no, initial-scale=1, maximum-scale=1" />
+  <meta name="description" content="GetPaid is the easiest way to pay and get paid."/>
+
+  <!-- IMPORTED LIBRARIES -->
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
   <script src="lib/angular/angular.js"></script>
   <script src="lib/angular/angular-route.js"></script>
   <script src="http://code.angularjs.org/1.2.0-rc.3/angular-animate.min.js"></script>
   <script src="http://code.angularjs.org/1.2.0rc1/angular-touch.js"></script>
+
+  <!-- ICONS -->
+  <link href="#" rel="image_src"/>
+  <link href="#" rel="shortcut icon"/>
+  <link href="#" rel="apple-touch-icon-precomposed"/>
+
+  <!-- STYLESHEET/S --> 
+  <link href="css/app.css" rel="stylesheet">
+
+  <!-- JAVASCRIPT -->
   <script src="js/app.js"></script>
   <script src="js/services.js"></script>
   <script src="js/controllers.js"></script>
   <script src="js/filters.js"></script>
   <script src="js/directives.js"></script>
+</head>
+
+<body>
+  <div class ="content"ng-view></div>
+  <!-- 
+  In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+  -->
 </body>
 </html>
